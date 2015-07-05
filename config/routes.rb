@@ -1,6 +1,22 @@
 Rails.application.routes.draw do
+  get 'welcome/index'
+  get 'welcome/about'
+  get 'welcome/contact'
+  get 'welcome/faq'
+  get 'welcome/features'
+  get 'welcome/pricing'
+
   resources :invoices
-  # The priority is based upon order of creation: first created -> highest priority.
+  # Following Chagne in the Route will make localhost:3000 to show invoices#index page direlctly instead of
+  # showing Standard Ruby on Rails Page. You need not to write absolute URI localhost:3000/invoices anymore.
+  # to make this change effect give command rake routes and restart server rails s
+  #root to: 'invoices#index'
+  root to: 'welcome#index'
+
+end
+
+
+# The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
@@ -54,4 +70,3 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
